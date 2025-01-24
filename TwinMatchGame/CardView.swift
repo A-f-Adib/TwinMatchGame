@@ -10,7 +10,6 @@ import SwiftUI
 struct CardView: View {
     
     var card : [String]
-    
     var rows: Int {
         if card.count == 12 {
             4
@@ -18,8 +17,26 @@ struct CardView: View {
             3
         }
     }
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        Grid(horizontalSpacing: 0, verticalSpacing: 0) {
+            ForEach(0..<rows, id: \.self) { i in
+                GridRow {
+                    ForEach(0..<3) { j in
+                        let text = card[i * 3 * j]
+                        
+                        Button(text) {
+                            
+                        }
+                    }
+                }
+            }
+        }
+        .font(.system(size: 64))
+        .padding()
+        .background(.white)
     }
 }
 
