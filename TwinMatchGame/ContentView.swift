@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let allEmoji = Array("😎🥹🥰😔😂😳🧐🙂😇😅😆😙😬🙃😍🥸😣😶🙄🤨😩😉🥲😋😛🤓😏😭😯😵😐😘😢😠").map(String.init)
+    
+    @State private var currentEmoji = [String]()
+    @State private var leftCard = [String]()
+    @State private var rightCard = [String]()
+    
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+           
+            
         }
         .padding()
     }
