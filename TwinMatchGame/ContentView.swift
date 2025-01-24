@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var leftCard = [String]()
     @State private var rightCard = [String]()
     
+    var itemCount: Int
     
     var body: some View {
         VStack {
@@ -23,8 +24,17 @@ struct ContentView: View {
         }
         .padding()
     }
+    
+    func createLevel() {
+        currentEmoji = allEmoji.shuffled()
+        
+        withAnimation(.spring(duration: 0.75)) {
+            leftCard = Array(currentEmoji[0..<itemCount]).shuffled()
+            rightCard = Array(currentEmoji[itemCount + 1..<itemCount + itemCount])
+        }
+    }
 }
 
 #Preview {
-    ContentView()
+    ContentView(itemCount: 9)
 }

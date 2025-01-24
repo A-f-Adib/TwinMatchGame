@@ -11,7 +11,7 @@ import SwiftUI
 struct TwinMatchGameApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(itemCount: 9)
         }
     }
 }
