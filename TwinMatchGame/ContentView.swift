@@ -25,12 +25,13 @@ struct ContentView: View {
         .padding()
     }
     
+    
     func createLevel() {
         currentEmoji = allEmoji.shuffled()
         
         withAnimation(.spring(duration: 0.75)) {
             leftCard = Array(currentEmoji[0..<itemCount]).shuffled()
-            rightCard = Array(currentEmoji[itemCount + 1..<itemCount + itemCount])
+            rightCard = Array(currentEmoji[itemCount + 1..<itemCount + itemCount] + [currentEmoji[0]]).shuffled()
         }
     }
 }
