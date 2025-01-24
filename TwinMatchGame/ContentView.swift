@@ -18,11 +18,23 @@ struct ContentView: View {
     var itemCount: Int
     
     var body: some View {
-        VStack {
-           
-            
+       
+        HStack(spacing: 0) {
+            ZStack {
+                if leftCard.isEmpty == false {
+                    HStack {
+                        CardView(card: leftCard)
+                        CardView(card: rightCard)
+                    }
+                    .padding(.horizontal, 10)
+                }
+            }
         }
-        .padding()
+        .ignoresSafeArea()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(white: 0.9))
+        .persistentSystemOverlays(.hidden)
+        .onAppear(perform: createLevel)
     }
     
     
@@ -30,8 +42,8 @@ struct ContentView: View {
         currentEmoji = allEmoji.shuffled()
         
         withAnimation(.spring(duration: 0.75)) {
-            leftCard = Array(currentEmoji[0..<itemCount]).shuffled()
-            rightCard = Array(currentEmoji[itemCount + 1..<itemCount + itemCount] + [currentEmoji[0]]).shuffled()
+            leftCard = Array(currentEmoji[0..<itemCount])//.shuffled()
+            rightCard = Array(currentEmoji[itemCount + 1..<itemCount + itemCount] + [currentEmoji[0]])//.shuffled()
         }
     }
 }

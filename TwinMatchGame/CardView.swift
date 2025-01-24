@@ -25,7 +25,7 @@ struct CardView: View {
             ForEach(0..<rows, id: \.self) { i in
                 GridRow {
                     ForEach(0..<3) { j in
-                        let text = card[i * 3 * j]
+                        let text = card[i * 3 + j]
                         
                         Button(text) {
                             
@@ -37,9 +37,12 @@ struct CardView: View {
         .font(.system(size: 64))
         .padding()
         .background(.white)
+        .clipShape(.rect(cornerRadius: 20))
+        .fixedSize()
+        .shadow(radius: 10)
     }
 }
 
 #Preview {
-    CardView(card: <#[String]#>)
+    CardView(card: ["1", "2", "3", "4", "5", "6", "7", "8", "9"])
 }
