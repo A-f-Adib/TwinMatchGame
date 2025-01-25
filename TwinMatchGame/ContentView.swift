@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+enum GameState {
+    case waiting
+    case player1Answering
+    case player2Answering
+}
+
+
 struct ContentView: View {
     
     let allEmoji = Array("😎🥹🥰😔😂😳🧐🙂😇😅😆😙😬🙃😍🥸😣😶🙄🤨😩😉🥲😋😛🤓😏😭😯😵😐😘😢😠").map(String.init)
@@ -14,6 +21,10 @@ struct ContentView: View {
     @State private var currentEmoji = [String]()
     @State private var leftCard = [String]()
     @State private var rightCard = [String]()
+    
+    @State private var gameState = GameState.waiting
+    @State private var player1Score = 0
+    @State private var player2Score = 0
     
     var itemCount: Int
     
