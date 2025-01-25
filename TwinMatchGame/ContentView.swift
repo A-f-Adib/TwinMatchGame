@@ -35,6 +35,9 @@ struct ContentView: View {
     var body: some View {
        
         HStack(spacing: 0) {
+            
+            PlayerButton(gameState: gameState, score: player1Score, color: .blue, onSelect: selectPlayer1)
+            
             ZStack {
                 if leftCard.isEmpty == false {
                     HStack {
@@ -44,6 +47,8 @@ struct ContentView: View {
                     .padding(.horizontal, 10)
                 }
             }
+            
+            PlayerButton(gameState: gameState, score: player2Score, color: .red, onSelect: selectPlayer2)
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -75,6 +80,15 @@ struct ContentView: View {
         answerColor = .red
         answerAnchor = .trailing
         gameState = .player2Answering
+    }
+    
+    
+    func timeOut() {
+        if gameState == .player1Answering {
+            player1Score -= 1
+        } else if gameState == .player2Answering {
+            player2Score -= 1
+        }
     }
 }
 
