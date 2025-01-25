@@ -44,8 +44,8 @@ struct ContentView: View {
                 
                 if leftCard.isEmpty == false {
                     HStack {
-                        CardView(card: leftCard)
-                        CardView(card: rightCard)
+                        CardView(card: leftCard, userCanAns: gameState != .waiting, onSelect: checkAns)
+                        CardView(card: rightCard, userCanAns: gameState != .waiting, onSelect: checkAns)
                     }
                     .padding(.horizontal, 10)
                 }
@@ -105,6 +105,34 @@ struct ContentView: View {
         } completion: {
             timeOut()
         }
+    }
+    
+    
+    func checkAns(_ string: String) {
+        if string == currentEmoji[0] {
+            if gameState == .player1Answering {
+                player1Score += 1
+            } else if gameState == .player2Answering {
+                player2Score += 1
+            }
+            
+            if player1Score == 5 || player2Score == 5 {
+                //Game over
+            } else {
+                createLevel()
+            }
+        } 
+        else {
+            if gameState == .player1Answering {
+                player1Score -= 1
+            } else if gameState == .player2Answering {
+                player2Score -= 1
+            }
+        }
+        
+        answerColor = .clear
+        answerScale = 0
+        gameState = .waiting
     }
 }
 

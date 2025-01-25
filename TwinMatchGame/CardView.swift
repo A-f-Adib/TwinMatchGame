@@ -17,6 +17,8 @@ struct CardView: View {
             3
         }
     }
+    var userCanAns: Bool
+    var onSelect: (String) -> Void
     
     
     var body: some View {
@@ -28,7 +30,7 @@ struct CardView: View {
                         let text = card[i * 3 + j]
                         
                         Button(text) {
-                            
+                            onSelect(text)
                         }
                     }
                 }
@@ -40,9 +42,10 @@ struct CardView: View {
         .clipShape(.rect(cornerRadius: 20))
         .fixedSize()
         .shadow(radius: 10)
+        .disabled(userCanAns == false)
     }
 }
 
 #Preview {
-    CardView(card: ["1", "2", "3", "4", "5", "6", "7", "8", "9"])
+    CardView(card: ["1", "2", "3", "4", "5", "6", "7", "8", "9"], userCanAns: true) { _ in }
 }
