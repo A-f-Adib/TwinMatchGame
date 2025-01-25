@@ -16,7 +16,19 @@ struct PlayerButton: View {
     
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+       
+        Button(action: onSelect) {
+            Rectangle()
+                .fill(color)
+                .frame(minWidth: 60)
+                .overlay(
+                    Text(String(score))
+                        .fixedSize()
+                        .foregroundColor(.white)
+                        .font(.system(size: 48).bold())
+                )
+        }
+        .disabled(gameState != .waiting)
     }
 }
 
