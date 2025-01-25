@@ -26,6 +26,10 @@ struct ContentView: View {
     @State private var player1Score = 0
     @State private var player2Score = 0
     
+    @State private var answerColor = Color.clear
+    @State private var answerScale = 1.0
+    @State private var answerAnchor = UnitPoint.center
+    
     var itemCount: Int
     
     var body: some View {
@@ -56,6 +60,21 @@ struct ContentView: View {
             leftCard = Array(currentEmoji[0..<itemCount])//.shuffled()
             rightCard = Array(currentEmoji[itemCount + 1..<itemCount + itemCount] + [currentEmoji[0]])//.shuffled()
         }
+    }
+    
+    
+    func selectPlayer1() {
+        guard gameState == .waiting else { return }
+        answerColor = .blue
+        answerAnchor = .leading
+        gameState = .player1Answering
+    }
+    
+    func selectPlayer2() {
+        guard gameState == .waiting else { return }
+        answerColor = .red
+        answerAnchor = .trailing
+        gameState = .player2Answering
     }
 }
 
