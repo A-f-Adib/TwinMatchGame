@@ -21,14 +21,14 @@ struct MenuView: View {
             VStack(spacing: 10) {
                 Text("Twin Match Game")
                     .frame(maxWidth: 400)
-                    .background(Color.red)
+                    .background(Color.red.opacity(0.9))
                     .cornerRadius(10)
                     .foregroundColor(.white)
                     .frame(height: 20)
                     .font(.largeTitle.bold())
                     .fontDesign(.rounded)
                     .padding()
-                    .padding(.top, 28)
+                    .padding(.top, 15)
                 
                 Text("Answer Time")
                     .font(.title2)
@@ -44,8 +44,27 @@ struct MenuView: View {
                 
                 Text("Difficulty")
                     .font(.title3)
-              
+                
+                Picker("Difficulty", selection: $items) {
+                    Text("Easy").tag(9)
+                    Text("Hard").tag(12)
+                }
+                .pickerStyle(.segmented)
+                
+                Button("Start Game >") {
+                    isGameActive = true
+                }
+                .buttonStyle(.borderedProminent)
+                .padding(.top, 25)
             }
+            .padding()
+            .background(.mint.opacity(0.8))
+            .clipShape(.rect(cornerRadius: 20))
+            .padding(.top, 20)
+            .padding(.vertical)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding()
+            .background(Color.teal.opacity(0.4))
         }
     }
 }
