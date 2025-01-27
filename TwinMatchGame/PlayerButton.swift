@@ -12,8 +12,9 @@ struct PlayerButton: View {
     var gameState : GameState
     var score: Int
     var color: Color
+    var playerName : Int
     var onSelect: () -> Void
-    
+   
     
     var body: some View {
        
@@ -22,10 +23,23 @@ struct PlayerButton: View {
                 .fill(color)
                 .frame(minWidth: 60)
                 .overlay(
-                    Text(String(score))
-                        .fixedSize()
-                        .foregroundColor(.white)
-                        .font(.system(size: 48).bold())
+                    VStack {
+                        Spacer()
+                        Spacer()
+                        Text(String(score))
+                            .fixedSize()
+                            .foregroundColor(.white)
+                            .font(.system(size: 48).bold())
+                       
+                        Spacer()
+                        
+                       
+                        Text("Player \(playerName)")
+                            .fixedSize()
+                            .foregroundColor(.white)
+                            .font(.title.bold())
+                        Spacer()
+                    }
                 )
         }
         .disabled(gameState != .waiting)
@@ -33,7 +47,7 @@ struct PlayerButton: View {
 }
 
 #Preview {
-    PlayerButton(gameState: .waiting, score: 5, color: .blue) {
+    PlayerButton(gameState: .waiting, score: 5, color: .blue, playerName: 1) {
         
     }
 }

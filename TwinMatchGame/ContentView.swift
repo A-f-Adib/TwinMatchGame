@@ -40,7 +40,7 @@ struct ContentView: View {
        
         HStack(spacing: 0) {
             
-            PlayerButton(gameState: gameState, score: player1Score, color: .blue, onSelect: selectPlayer1)
+            PlayerButton(gameState: gameState, score: player1Score, color: .blue, playerName: 1, onSelect: selectPlayer1)
             
             ZStack {
                 answerColor
@@ -55,7 +55,7 @@ struct ContentView: View {
                 }
             }
             
-            PlayerButton(gameState: gameState, score: player2Score, color: .red, onSelect: selectPlayer2)
+            PlayerButton(gameState: gameState, score: player2Score, color: .red, playerName: 2, onSelect: selectPlayer2)
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -134,6 +134,7 @@ struct ContentView: View {
             
             if player1Score == 5 || player2Score == 5 {
                 //Game over
+                playerHasWon = true
             } else {
                 createLevel()
             }
