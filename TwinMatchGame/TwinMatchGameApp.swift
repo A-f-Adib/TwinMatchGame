@@ -11,7 +11,8 @@ import SwiftUI
 struct TwinMatchGameApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(itemCount: 9)
+           MenuView()
+                .preferredColorScheme(.light)
         }
     }
 }
