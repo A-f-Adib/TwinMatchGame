@@ -16,7 +16,7 @@ enum GameState {
 
 struct ContentView: View {
     
-    let allEmoji = Array("😎🥹🥰😔😂😳🧐🙂😇😅😆😙😬🙃😍🥸😣😶🙄🤨😩😉🥲😋😛🤓😏😭😯😵😐😘😢😠").map(String.init)
+    let allEmoji = Array("🚂🚃🚄🚅🚆🚇🚈🚉🚊🚝🚞🚋🚌🚍🚎🚐🚑🚒🚓🚔🚕🚖🚗🚘🚙🛻🚚🚛🚜🏎️🏍️🛵🦽🦼🛺🚲🛴").map(String.init)
     
     @State private var currentEmoji = [String]()
     @State private var leftCard = [String]()
@@ -145,8 +145,7 @@ struct ContentView: View {
             }
             
             if player1Score == 5 || player2Score == 5 {
-                //Game over
-                playerHasWon = true
+                 playerHasWon = true
             } else {
                 createLevel()
             }

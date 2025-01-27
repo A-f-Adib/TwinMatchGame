@@ -60,14 +60,12 @@ struct MenuView: View {
                 .padding(.top, 25)
             }
             .padding()
-            .background(Color.cyan.opacity(0.8))
-//            .background(.mint.opacity(0.8))
+            .background(Color.cyan.opacity(0.9))
             .clipShape(.rect(cornerRadius: 20))
             .padding(.top, 20)
             .padding(.vertical)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
-//            .background(Color.cyan.opacity(0.4))
             .background(.mint.opacity(0.4))
         }
     }
