@@ -14,7 +14,23 @@ struct MenuView: View {
     @State private var isGameActive = false
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        if isGameActive {
+            ContentView(itemCount: items, ansTime: timeOut, isGameActive: $isGameActive)
+        } else {
+            VStack(spacing: 10) {
+                Text("Twin Match Game")
+                    .frame(maxWidth: 400)
+                    .background(Color.red)
+                    .cornerRadius(10)
+                    .foregroundColor(.white)
+                    .frame(height: 20)
+                    .font(.largeTitle.bold())
+                    .fontDesign(.rounded)
+                
+
+            }
+        }
     }
 }
 
