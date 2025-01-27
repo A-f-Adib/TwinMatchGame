@@ -40,7 +40,7 @@ struct ContentView: View {
        
         HStack(spacing: 0) {
             
-            PlayerButton(gameState: gameState, score: player1Score, color: .blue, playerName: 1, onSelect: selectPlayer1)
+            PlayerButton(gameState: gameState, score: player1Score, color: .cyan, playerName: 1, onSelect: selectPlayer1)
             
             ZStack {
                 answerColor
@@ -58,12 +58,12 @@ struct ContentView: View {
                         isGameActive = false
                     }
                     .offset(y: itemCount == 9 ? 20 : 2)
-                    .buttonStyle(.bordered)
+                    .buttonStyle(.borderedProminent)
                     .controlSize(.mini)
                 }
             }
             
-            PlayerButton(gameState: gameState, score: player2Score, color: .red, playerName: 2, onSelect: selectPlayer2)
+            PlayerButton(gameState: gameState, score: player2Score, color: .mint, playerName: 2, onSelect: selectPlayer2)
         }
         .ignoresSafeArea()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -89,15 +89,15 @@ struct ContentView: View {
         currentEmoji = allEmoji.shuffled()
         
         withAnimation(.spring(duration: 0.75)) {
-            leftCard = Array(currentEmoji[0..<itemCount])//.shuffled()
-            rightCard = Array(currentEmoji[itemCount + 1..<itemCount + itemCount] + [currentEmoji[0]])//.shuffled()
+            leftCard = Array(currentEmoji[0..<itemCount]).shuffled()
+            rightCard = Array(currentEmoji[itemCount + 1..<itemCount + itemCount] + [currentEmoji[0]]).shuffled()
         }
     }
     
     
     func selectPlayer1() {
         guard gameState == .waiting else { return }
-        answerColor = .blue
+        answerColor = .cyan
         answerAnchor = .leading
         gameState = .player1Answering
         runClock()
@@ -105,14 +105,17 @@ struct ContentView: View {
     
     func selectPlayer2() {
         guard gameState == .waiting else { return }
-        answerColor = .red
+        answerColor = .mint
         answerAnchor = .trailing
         gameState = .player2Answering
         runClock()
     }
     
     
-    func timeOut() {
+    func timeOut(for emo: [String]) {
+        guard currentEmoji == emo else {
+            return
+        }
         if gameState == .player1Answering {
             player1Score -= 1
         } else if gameState == .player2Answering {
@@ -124,10 +127,11 @@ struct ContentView: View {
     
     func runClock() {
         answerScale = 1
+        let checkEmo = currentEmoji
         withAnimation(.linear(duration: ansTime)) {
             answerScale = 0
         } completion: {
-            timeOut()
+            timeOut(for: checkEmo)
         }
     }
     
@@ -162,5 +166,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(itemCount: 12, ansTime: 1, isGameActive: .constant(true))
+    ContentView(itemCount: 9, ansTime: 3, isGameActive: .constant(true))
 }

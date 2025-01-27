@@ -31,7 +31,8 @@ struct MenuView: View {
                     .padding(.top, 15)
                 
                 Text("Answer Time")
-                    .font(.title2)
+                    .foregroundStyle(Color.white)
+                    .font(.title2.bold())
                     .padding(.top)
                 
                 Picker("Timeout", selection: $timeOut) {
@@ -43,7 +44,8 @@ struct MenuView: View {
                 .padding(.bottom)
                 
                 Text("Difficulty")
-                    .font(.title3)
+                    .foregroundStyle(Color.white)
+                    .font(.title2.bold())
                 
                 Picker("Difficulty", selection: $items) {
                     Text("Easy").tag(9)
@@ -58,13 +60,15 @@ struct MenuView: View {
                 .padding(.top, 25)
             }
             .padding()
-            .background(.mint.opacity(0.8))
+            .background(Color.cyan.opacity(0.8))
+//            .background(.mint.opacity(0.8))
             .clipShape(.rect(cornerRadius: 20))
             .padding(.top, 20)
             .padding(.vertical)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
-            .background(Color.teal.opacity(0.4))
+//            .background(Color.cyan.opacity(0.4))
+            .background(.mint.opacity(0.4))
         }
     }
 }
