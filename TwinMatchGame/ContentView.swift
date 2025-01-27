@@ -46,12 +46,20 @@ struct ContentView: View {
                 answerColor
                     .scaleEffect(x: answerScale, anchor: answerAnchor)
                 
-                if leftCard.isEmpty == false {
-                    HStack {
-                        CardView(card: leftCard, userCanAns: gameState != .waiting, onSelect: checkAns)
-                        CardView(card: rightCard, userCanAns: gameState != .waiting, onSelect: checkAns)
+                VStack {
+                    if leftCard.isEmpty == false {
+                        HStack {
+                            CardView(card: leftCard, userCanAns: gameState != .waiting, onSelect: checkAns)
+                            CardView(card: rightCard, userCanAns: gameState != .waiting, onSelect: checkAns)
+                        }
+                        .padding(.horizontal, 10)
                     }
-                    .padding(.horizontal, 10)
+                    Button("< End Game") {
+                        isGameActive = false
+                    }
+                    .offset(y: itemCount == 9 ? 20 : 2)
+                    .buttonStyle(.bordered)
+                    .controlSize(.mini)
                 }
             }
             
@@ -154,5 +162,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(itemCount: 9, ansTime: 1, isGameActive: .constant(true))
+    ContentView(itemCount: 12, ansTime: 1, isGameActive: .constant(true))
 }
