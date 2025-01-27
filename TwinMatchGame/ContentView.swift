@@ -30,6 +30,8 @@ struct ContentView: View {
     @State private var answerScale = 1.0
     @State private var answerAnchor = UnitPoint.center
     
+    @State private var playerHasWon = false
+    
     var itemCount: Int
     var ansTime : Double
     @Binding var isGameActive : Bool
@@ -60,6 +62,18 @@ struct ContentView: View {
         .background(Color(white: 0.9))
         .persistentSystemOverlays(.hidden)
         .onAppear(perform: createLevel)
+        
+        .alert("Game Over", isPresented: $playerHasWon) {
+            Button("Start Again") {
+                isGameActive = false
+            }
+        } message: {
+            if player1Score > player2Score {
+                Text("Player 1 won \(player1Score)-\(player2Score)")
+            } else {
+                Text("Player 2 won \(player2Score)-\(player1Score)")
+            }
+        }
     }
     
     
