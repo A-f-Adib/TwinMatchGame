@@ -27,8 +27,24 @@ struct MenuView: View {
                     .frame(height: 20)
                     .font(.largeTitle.bold())
                     .fontDesign(.rounded)
+                    .padding()
+                    .padding(.top, 28)
                 
-
+                Text("Answer Time")
+                    .font(.title2)
+                    .padding(.top)
+                
+                Picker("Timeout", selection: $timeOut) {
+                    Text("Slow").tag(3.0)
+                    Text("Medium").tag(2.0)
+                    Text("Fast").tag(1.0)
+                }
+                .pickerStyle(.segmented)
+                .padding(.bottom)
+                
+                Text("Difficulty")
+                    .font(.title3)
+              
             }
         }
     }
