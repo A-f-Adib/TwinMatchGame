@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		740247D62D47E9D30099EC95 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740247D52D47E9D30099EC95 /* MenuView.swift */; };
 		74A7CEED2D44316D00B9217C /* TwinMatchGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A7CEEC2D44316D00B9217C /* TwinMatchGameApp.swift */; };
 		74A7CEEF2D44316D00B9217C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A7CEEE2D44316D00B9217C /* ContentView.swift */; };
 		74A7CEF12D44316F00B9217C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74A7CEF02D44316F00B9217C /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		740247D52D47E9D30099EC95 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		74A7CEE92D44316D00B9217C /* TwinMatchGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwinMatchGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74A7CEEC2D44316D00B9217C /* TwinMatchGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwinMatchGameApp.swift; sourceTree = "<group>"; };
 		74A7CEEE2D44316D00B9217C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				74A7CEEE2D44316D00B9217C /* ContentView.swift */,
 				74DD56D02D45798800C720EA /* PlayerButton.swift */,
 				74A7CEFA2D44370F00B9217C /* CardView.swift */,
+				740247D52D47E9D30099EC95 /* MenuView.swift */,
 				74A7CEF02D44316F00B9217C /* Assets.xcassets */,
 				74A7CEF22D44316F00B9217C /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				740247D62D47E9D30099EC95 /* MenuView.swift in Sources */,
 				74A7CEEF2D44316D00B9217C /* ContentView.swift in Sources */,
 				74A7CEFB2D44370F00B9217C /* CardView.swift in Sources */,
 				74DD56D12D45798800C720EA /* PlayerButton.swift in Sources */,
